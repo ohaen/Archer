@@ -50,5 +50,6 @@ public class PlayerMove : MonoBehaviour
         bool isRun;
         isRun = _playerRigidBody.velocity != Vector3.zero ? true : false;
         _playerAnimator.SetBool(Run, isRun);
+        _playerAnimator.SetBool("Attack", !isRun);
     }
 }
