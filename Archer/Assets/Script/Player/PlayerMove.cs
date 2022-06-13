@@ -34,7 +34,7 @@ public class PlayerMove : MonoBehaviour
     }
     private void Move()
     {
-        Vector3 playerDir = new Vector3(virtualJoyStick.StickDirection().x, 0, virtualJoyStick.StickDirection().y);
+        Vector3 playerDir = new Vector3(virtualJoyStick.StickDirection().x, 0, virtualJoyStick.StickDirection().z);
         _playerRigidBody.velocity = playerDir * moveSpeed;
 
         transform.LookAt(transform.position + playerDir);
