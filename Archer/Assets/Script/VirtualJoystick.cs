@@ -20,8 +20,6 @@ public class VirtualJoystick : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     {
         ControlStick(eventData);
         _isInput = true;
-        Debug.Log(_rectTransform.anchoredPosition);
-        Debug.Log(eventData.position);
     }
 
     public void OnDrag(PointerEventData eventData)

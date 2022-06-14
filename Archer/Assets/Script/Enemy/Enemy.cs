@@ -39,7 +39,6 @@ public class Enemy : MonoBehaviour
         StartCoroutine("Move");
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -97,6 +96,8 @@ public class Enemy : MonoBehaviour
         StopAllCoroutines();
         currentState = eState.Move;
         attackCollider.gameObject.SetActive(false);
+        StartCoroutine("Move");
+        Debug.Log("¸®¼Â!");
     }
 
     private void Die()
