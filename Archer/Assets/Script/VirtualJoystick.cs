@@ -8,10 +8,6 @@ public class VirtualJoystick : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     [SerializeField]
     private RectTransform _stick;
     private RectTransform _rectTransform;
-    //[SerializeField, Range(0, 150)]
-    //private float _stickRange;
-
-    //private Vector2 _direction;
     private bool _isInput;
     private Vector3 _inputVector;
 
@@ -36,17 +32,11 @@ public class VirtualJoystick : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     public void OnEndDrag(PointerEventData eventData)
     {
         _stick.anchoredPosition = Vector2.zero;
-        //_direction = Vector2.zero;
         _isInput = false;
     }
 
     private void ControlStick(PointerEventData eventData)
     {
-        //var inputPos = _rectTransform.anchoredPosition - eventData.position;
-        //var inputVector = inputPos.magnitude < _stickRange ? inputPos : inputPos.normalized * _stickRange;
-        //_stick.anchoredPosition = inputVector;
-        //_direction = inputVector / _stickRange;
-
         Vector2 pos;
         if(RectTransformUtility.ScreenPointToLocalPointInRectangle(_rectTransform, eventData.position,eventData.pressEventCamera,out pos))
         {

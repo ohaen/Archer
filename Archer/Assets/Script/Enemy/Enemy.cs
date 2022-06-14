@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        
         _collider = GetComponent<Collider>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _target = GameManager.Instance.playerObject;
@@ -49,8 +50,8 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Projectile"))
         {
-            TakeDamage(other.GetComponent<PlayerAbility>().GetDamage());
-            Destroy(other.gameObject);
+            TakeDamage(other.GetComponent<Projectile>().ProjectileDamage());
+            Destroy(other.gameObject,0f);
         }
     }
     IEnumerator Move()
@@ -88,12 +89,14 @@ public class Enemy : MonoBehaviour
 
     public void MonsterAttack()
     {
-        attackCollider.enabled = true;
+        attackCollider.gameObject.SetActive(true);
     }
 
     public void MonsterAttackReset()
     {
-
+        StopAllCoroutines();
+        currentState = eState.Move;
+        attackCollider.gameObject.SetActive(false);
     }
 
     private void Die()

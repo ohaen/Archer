@@ -8,15 +8,16 @@ public class PlayerAbility : MonoBehaviour
     [SerializeField] private float _playerCurrentHP;
     [SerializeField] private float _playerDamage;
     [SerializeField] private float _playerMoveSpeed;
+    [SerializeField] private float _playerProjectileSpeed;
 
     public float GetDamage()
     {
         return _playerDamage;
     }
 
-    public float GetMoveSpeed()
+    public float GetProjectileSpeed()
     {
-        return _playerMoveSpeed;
+        return _playerProjectileSpeed;
     }
 
     public void TakeDamage(float damage)

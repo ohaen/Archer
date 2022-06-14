@@ -6,7 +6,7 @@ public class BatAttackCollision : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Projectile"))
+        if(other.CompareTag("Player"))
         {
             //other.gameObject.GetComponent<PlayerAbility>().TakeDamage();
         }

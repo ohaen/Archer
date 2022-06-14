@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    private float _damage;
+
     private Rigidbody _projectileRigidBody;
     void Start()
     {
-        _projectileRigidBody = GetComponent<Rigidbody>();
-        _projectileRigidBody.velocity = transform.forward * 5f;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Init(float damage, float speed)
     {
-        
+        _damage = damage;
+        _projectileRigidBody = GetComponent<Rigidbody>();
+        _projectileRigidBody.velocity = transform.forward * speed;
     }
+
+    public float ProjectileDamage()
+    {
+        return _damage;
+    }
+
 }

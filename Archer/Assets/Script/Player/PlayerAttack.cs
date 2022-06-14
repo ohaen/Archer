@@ -10,10 +10,12 @@ public class PlayerAttack : MonoBehaviour
     public Transform projectilePoint;
 
     private Animator _playerAnimator;
+    private PlayerAbility _playerAbility;
 
     void Start()
     {
         _playerAnimator = GetComponent<Animator>();
+        _playerAbility = GetComponent<PlayerAbility>();
     }
 
     void Update()
@@ -28,6 +30,9 @@ public class PlayerAttack : MonoBehaviour
     {
         GameObject newProjectile = null;
         newProjectile = Instantiate(attackObject,projectilePoint.position, projectilePoint.rotation);
+        newProjectile.GetComponent<Projectile>().Init(_playerAbility.GetDamage(), _playerAbility.GetProjectileSpeed());
+
+        //newProjectile.GetComponent<Projectile>().Init(_playerAbility.GetDamage(),3f);
     }
 
     public void ResetAttack()
